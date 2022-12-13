@@ -56,7 +56,6 @@ const ProductEditScreen = () => {
 
   const uploadFileHandler = async (e) => {
     const file = e.target.files[0];
-    console.log(file);
     const formData = new FormData();
     formData.append('image', file);
     setUploading(true);
@@ -67,7 +66,11 @@ const ProductEditScreen = () => {
           'Content-Type': 'multipart/form-data',
         },
       };
-      const { data } = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/upload`, formData, config);
+      const { data } = await axios.post(
+        `${process.env.REACT_APP_BACKEND_URL}/api/upload`,
+        formData,
+        config
+      );
 
       setImage(data);
       setUploading(false);

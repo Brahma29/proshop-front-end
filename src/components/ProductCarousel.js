@@ -13,7 +13,6 @@ const ProductCarousel = () => {
 
   useEffect(() => {
     dispatch(listTopProducts());
-    console.log('products', products);
   }, [dispatch]);
 
   return loading ? (
